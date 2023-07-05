@@ -18,7 +18,7 @@ public class ArticleClientController {
     private WebClient webClient;
 
     @GetMapping(value = "/client/test")
-    public Map<String, Object> getArticles(@RegisteredOAuth2AuthorizedClient("demo") OAuth2AuthorizedClient authorizedClient) {
+    public Map<String, Object> getArticles(@RegisteredOAuth2AuthorizedClient("messaging-client-authorization-code") OAuth2AuthorizedClient authorizedClient) {
         return this.webClient
                 .get()
                 .uri("http://127.0.0.1:8090/resource/article")

@@ -35,15 +35,15 @@ public class AuthorizationServerConfig {
     @Bean
     public RegisteredClientRepository registeredClientRepository() {
         RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("demo")
-                .clientSecret("{noop}demo")
+                .clientId("demo-client")
+                .clientSecret("{noop}demo-client")
                 .clientAuthenticationMethods(s -> {
                     s.add(ClientAuthenticationMethod.CLIENT_SECRET_POST);
                     s.add(ClientAuthenticationMethod.CLIENT_SECRET_BASIC);
                 })
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                .redirectUri("http://127.0.0.1:8070/login/oauth2/code/demo")
+                .redirectUri("http://127.0.0.1:8070/login/oauth2/code/messaging-client-authorization-code")
                 .scope("message.read")
                 .clientSettings(ClientSettings.builder()
                         .requireAuthorizationConsent(true)
